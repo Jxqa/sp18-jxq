@@ -1,34 +1,34 @@
-public class ArrayDeque<Item> {
-    private Item[] items;
+public class ArrayDeque<T> {
+    private T[] items;
     private int size;
     private int length;
     private int nextFirst;
     private int nextLast;
     public ArrayDeque() {
-        items = (Item[]) new Object[8];
+        items = (T[]) new Object[8];
         size = 0;
         length = 8;
         nextFirst = 4;
         nextLast = 5;
     }
-    public void addFirst(Item x) {
-        if(size == length) {
+    public void addFirst(T x) {
+        if (size == length) {
             expand();
         }
         items[nextFirst] = x;
         size++;
-        if(nextFirst - 1 < 0) {
+        if (nextFirst - 1 < 0) {
             nextFirst = length - 1;
         }
         nextFirst--;
     }
-    public void addLast(Item x) {
-        if(size == length) {
+    public void addLast(T x) {
+        if (size == length) {
             expand();
         }
         items[nextLast] = x;
         size++;
-        if(nextLast + 1 > length - 1) {
+        if (nextLast + 1 > length - 1) {
             nextLast = 0;
         }
         nextLast++;
@@ -41,39 +41,39 @@ public class ArrayDeque<Item> {
     }
     public void printDeque() {
         int ptr = nextFirst + 1;
-        if(nextFirst + 1 > length - 1) {
+        if (nextFirst + 1 > length - 1) {
             ptr = 0;
         }
         while(ptr != nextLast) {
             System.out.print(items[ptr] + " ");
-            if(ptr + 1 > length - 1) {
+            if (ptr + 1 > length - 1) {
                 ptr = 0;
             } else {
                 ptr++;
             }
         }
     }
-    public Item removeFirst() {
-        if(nextFirst + 1 > length - 1) {
+    public T removeFirst() {
+        if (nextFirst + 1 > length - 1) {
             nextFirst = 0;
         } else {
             nextFirst++;
         }
-        Item x = items[nextFirst];
+        T x = items[nextFirst];
         size--;
         return x;
     }
-    public Item removeLast() {
-        if(nextLast - 1 < 0) {
+    public T removeLast() {
+        if (nextLast - 1 < 0) {
             nextLast = length - 1;
         } else {
             nextLast--;
         }
-        Item x = items[nextLast];
+        T x = items[nextLast];
         size--;
         return x;
     }
-    public Item get(int index) {
+    public T get(int index) {
         return items[index];
     }
     public void expand() {
