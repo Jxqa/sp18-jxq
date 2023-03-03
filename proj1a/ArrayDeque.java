@@ -77,7 +77,7 @@ public class ArrayDeque<T> {
         return items[index];
     }
     public void expand() {
-        Item[] array = (Item[]) new Object[2 * length];
+        T[] array = (T[]) new Object[2 * length];
         System.arraycopy(items, nextLast, array,
                 array.length -(items.length - nextLast + 1),
                  items.length - nextLast + 1);
