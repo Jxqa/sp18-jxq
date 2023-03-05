@@ -110,7 +110,7 @@ public class ArrayDeque<T> {
 
         int ptr = plusOne(nextFirst);
         int i = 0;
-        while (ptr != nextLast) {
+        while (i < size) {
             array[i] = items[ptr];
             i++;
             ptr = plusOne(ptr);
@@ -127,7 +127,7 @@ public class ArrayDeque<T> {
 
         int ptr = plusOne(nextFirst);
         int i = 0;
-        while (ptr != nextLast) {
+        while (i < size) {
             array[i] = items[ptr];
             i++;
             ptr = plusOne(ptr);
