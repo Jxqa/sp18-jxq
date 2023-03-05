@@ -74,7 +74,7 @@ public class ArrayDeque<T> {
             shrink();
         }
         if (size == 0) {
-            return 0;
+            return null;
         }
         nextFirst = plusOne(nextFirst);
         T x = items[nextFirst];
@@ -87,7 +87,7 @@ public class ArrayDeque<T> {
             shrink();
         }
         if (size == 0) {
-            return 0;
+            return null;
         }
         nextLast = minusOne(nextLast);
         T x = items[nextLast];
