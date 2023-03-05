@@ -73,9 +73,9 @@ public class ArrayDeque<T> {
         if (length >= 16 && length / size >= 4) {
             shrink();
         }
-        /** if (size == 0) {
-            return null;
-        } */
+        if (size == 0) {
+            return 0;
+        }
         nextFirst = plusOne(nextFirst);
         T x = items[nextFirst];
         size -= 1;
@@ -86,18 +86,18 @@ public class ArrayDeque<T> {
         if (length >= 16 && length / size >= 4) {
             shrink();
         }
-        /** if (size == 0) {
-            return null;
-        } */
-        nextLast = plusOne(nextLast);
+        if (size == 0) {
+            return 0;
+        }
+        nextLast = minusOne(nextLast);
         T x = items[nextLast];
         size -= 1;
         return x;
     }
     public T get(int index) {
-        /** if (index > size - 1) {
+        if (index > size - 1) {
             return null;
-        } */
+        }
         int ptr = plusOne(nextFirst);
         for (int i = 0; i < index; i++) {
             ptr = plusOne(ptr);
