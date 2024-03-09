@@ -66,10 +66,13 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
      */
     public T peek() {
         // TODO: Return the first item. None of your instance variables should change.
+        if (isEmpty()) {
+            throw new RuntimeException("Ring buffer underflow");
+        }
         return rb[first];
     }
 
-    public int plusOne(int idx, int capacity) {
+    private int plusOne(int idx, int capacity) {
         return idx + 1 == capacity ? 0 : idx + 1;
     }
 
